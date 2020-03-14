@@ -12,7 +12,7 @@ K = 'K'
 L = 'L'
 # (position, distance to goal, distance from last node)
 INITIAL_STATE = (A, 6, 0)
-STATE_SPACE = {(A, 6, 0): [ (B, 5, 1), (C, 5, 2), (D, 2, 4)],
+STATE_SPACE = {(A, 6, 0): [(B, 5, 1), (C, 5, 2), (D, 2, 4)],
                (B, 5, 1): [(F, 5, 5), (E, 4, 4)],
                (C, 5, 2): [(E, 4, 1)],
                (D, 2, 4): [(H, 1, 1), (I, 2, 4), (J, 1, 2)],
@@ -117,7 +117,7 @@ Run tree search and display the nodes in the path to goal node
 def run():
     path = GREEDY_SEARCH(INITIAL_STATE)
     print('Solution path:')
-    for node in path:
+    for node in reversed(path):
         node.display()
 
 if __name__ == '__main__':

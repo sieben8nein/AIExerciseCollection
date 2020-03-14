@@ -35,7 +35,7 @@ class Node:  # Node has only PARENT_NODE, STATE, DEPTH
         print(self)
 
     def __repr__(self):
-        return 'State: ' + str(self.STATE) + ' - cost: ' + str(self.pathcost) + ' parent: ' + str(self.PARENT_NODE)
+        return 'State: ' + str(self.STATE) + ' - cost: ' + str(self.pathcost)# + ' parent: ' + str(self.PARENT_NODE)
 
 '''
 Search the tree for the goal state and return path from initial state to goal state
@@ -48,7 +48,7 @@ def A_STAR_SEARCH():
     fringe[initial_node] = initial_node.pathcost
     while len(fringe) > 0:
         c = REMOVE_FIRST(fringe)
-        print(c)
+        #print(c)
         explored_nodes.append(c)
         if c.STATE == GOAL_STATE:
             return [c.path(), explored_nodes]
@@ -109,7 +109,7 @@ def run():
     information = A_STAR_SEARCH()
     path = information[0]
     print('Solution path:')
-    for node in path:
+    for node in reversed(path):
         node.display()
     print('total cost:', path[0].pathcost)
     print('explored nodes:', len(information[1]))

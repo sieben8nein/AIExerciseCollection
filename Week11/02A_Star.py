@@ -82,6 +82,7 @@ def EXPAND(node):
 '''
 Insert node in to the queue (fringe).
 '''
+
 def INSERT(node, queue):
     queue[node] = node.heuristic
     return queue
@@ -120,7 +121,7 @@ Run tree search and display the nodes in the path to goal node
 def run():
     path = GREEDY_SEARCH(INITIAL_STATE)
     print('Solution path:')
-    for node in path:
+    for node in reversed(path):
         node.display()
 
 if __name__ == '__main__':
