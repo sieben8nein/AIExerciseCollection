@@ -10,7 +10,7 @@ num_of_generations = 30
 def genetic_algorithm(population, fitness_fn, minimal_fitness):
     for generation in range(num_of_generations):
         print("Generation {}:".format(generation))
-        print_population(population, fitness_fn)
+        #print_population(population, fitness_fn)
 
         new_population = set()
 
@@ -62,7 +62,7 @@ def mutate(individual):
     '''
     random_position = random.randint(0, len(individual) - 1)
     mutated_individual = list(individual)
-    random_bit = random.randint(0, 1)
+    random_bit = random.randint(1, 8)
     mutated_individual[random_position] = random_bit
     # print("individual:", individual, "mutation", mutated_individual)
     return tuple(mutated_individual)
@@ -148,25 +148,21 @@ def get_initial_population(n, count):
     ])
 
 
-def bit_main():
-    '''
-        bit problem:
-        '''
-    bit_minimal_fitness = 7
-    # Curly brackets also creates a set, if there isn't a colon to indicate a dictionary
-    # bit_initial_population = {
-    #     (1, 1, 0),
-    #     (0, 0, 0),
-    #     (0, 1, 0),
-    #     (1, 0, 0)
-    # }
-    bit_initial_population = get_initial_population(3, 4)
-    bit_fittest = genetic_algorithm(bit_initial_population, fitness_function, bit_minimal_fitness)
-    print('Fittest Individual: ' + str(bit_fittest))
+def queen_main():
+    #(5, 3, 1, 7, 2, 8, 6, 4) final solution
+    minimal_fitness = 0
+    initial_population = {
+        (2, 4, 7, 4, 8, 5, 5, 2),
+        (3, 2, 7, 5, 2, 4, 1, 1),
+        (2, 4, 4, 1, 5, 1, 2, 4),
+        (5, 3, 1, 7, 2, 8, 6, 5),
+    }
+    fittest = genetic_algorithm(initial_population, fitness_fn_negative, minimal_fitness)
+    print('Fittest Individual: ' + str(fittest))
 
 
 def main():
-    bit_main()
+    queen_main()
 
 
 if __name__ == '__main__':
