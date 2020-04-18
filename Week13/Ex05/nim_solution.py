@@ -53,8 +53,13 @@ def utility_of(state):
 def successors_of(state):
     """
     returns a list of tuples (move, state) as shown in the exercise slides
-    :param state: State of the checkerboard. Ex: [0; 1; 2; 3; X; 5; 6; 7; 8]
-    :return:
+    :param state: State of the checkerboard. [4, 3] = [4, 2, 1]
+    :return: returns a list of successors in a format as follows (with 7 as input):
+                [(1, [6, 1]), (1, [5, 2]), (1, [4, 3])]
+
+[4, 3]
+successors([4, 3])
+[(1, [6, 1]), (1, [5, 2]), (1, [4, 3])]
     """
     successors = []
     for position in range(len(state)):
